@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t todo-list .'
+                sh 'sudo docker build -t todo-list .'
             }
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run -d -p 8080:8080 --name todo-container todo-list'
+                sh 'sudo docker run -d -p 8081:80 --name todo-container todo-list'
             }
         }
     }
