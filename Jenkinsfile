@@ -1,9 +1,10 @@
 pipeline {
     agent any
+
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/aliparvej/Todo_List.git'
+                git url: 'https://github.com/aliparvej/Todo_List.git', branch: 'master'
             }
         }
         stage('Build Docker Image') {
@@ -13,7 +14,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run -d -p 8081:80 todo-list'
+                sh 'docker run -d -p 8080:8080 --name todo-container todo-list'
             }
         }
     }
