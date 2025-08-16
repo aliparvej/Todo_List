@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                 docker rm -f todo-container || true
-                docker run -d -p 8080:8080 --name todo-container todo-list
+                docker run -d -p 8081:80 --name todo-container todo-list
                 '''
             }
         }
